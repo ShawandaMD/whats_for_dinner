@@ -1,6 +1,6 @@
 require 'nokogiri'
-require 'open-url'
 require 'pry'
+require 'open-uri'
 
 require_relative 'whats_for_dinner/version.rb'
 require_relative 'whats_for_dinner/cli.rb'
