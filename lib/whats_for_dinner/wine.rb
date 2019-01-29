@@ -1,0 +1,3 @@
+class WhatsForDinner::Wine
+
+end  

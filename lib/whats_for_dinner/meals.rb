@@ -1,0 +1,3 @@
+class WhatsForDinner::Meals
+
+end  
