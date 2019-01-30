@@ -15,12 +15,16 @@ class WhatsForDinner::CLI
     WhatsForDinner::Meals.all.each_with_index(1) do |meal, index|
       puts "#{index}. #{meal.name}"
     end
-    select_meal
+    select_meal_input
   end
 
-  def select_meal
+  def select_meal_input
     puts "What meal would you like to know more about?"
-    #user input a number from the list
+    input = gets a number
+  end
+
+  def select_meal(input)
+    if input ==
   end
 
   #WHAT DO I WANT MY INTERFACE TO do
