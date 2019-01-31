@@ -2,6 +2,8 @@ class WhatsForDinner::Meals
   attributes :title, :link, :subtitle, :time, :difficulty,
    :spice, :description, :chef, :calories
 
+   @@all = []
+
    def initialize()
 
    end
@@ -15,7 +17,7 @@ class WhatsForDinner::Meals
    end
 
    def self.all
-
+     @@all
    end
 
 
