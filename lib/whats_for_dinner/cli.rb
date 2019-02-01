@@ -34,15 +34,15 @@ class WhatsForDinner::CLI
       puts "    #{i}.   #{meal.title}"
     end
     puts ""
+    #details_page
   end
 
-
-    #list out all of the meals by index
-  #  WhatsForDinner::Meals.all.each_with_index(1) do |meal, index|
-  #    puts "#{index}. #{meal.name}"
-
-  #  end
-  #  select_meal_input
+  def details_page
+    WhatsForDinner::Meals.all.each do |meal|
+      hash = WhatsForDinner::Scraper.scrap_meal_details(meal.link)
+       puts meal.add_meal_details(hash)
+    end
+  end
 
 
   def select_meal_input
