@@ -8,6 +8,7 @@ class WhatsForDinner::CLI
 
   def user
     puts "Would you like to know whats for dinner this week?"
+    puts "Enter yes or no"
       input = gets.strip.downcase
       if input == "yes"
         puts "Here's a list"
@@ -38,15 +39,14 @@ class WhatsForDinner::CLI
       puts "    #{i}.   #{meal.title}"
     end
     puts ""
-  #  details_page
     select_meal_input
   end
 
-  def details_page
-    WhatsForDinner::Meals.all.each do |meal|
-      hash = WhatsForDinner::Scraper.scrap_meal_details(meal.link)
-        meal.add_meal_details(hash)
-    end
+  def details_page(link)
+      hash = WhatsForDinner::Scraper.scrap_meal_details(link)
+      meal.add_meal_details(hash)
+      #binding.pry
+    #binding.pry WhatsForDinner::Meals.all <<
   end
 
 
@@ -56,9 +56,11 @@ class WhatsForDinner::CLI
     puts "Please input corresponding meal number."
     input = gets.strip
     index = input.to_i - 1
-      if index.between?(1,18)
-        binding.pry
-      WhatsForDinner::Meals.all[index]
+binding.pry
+      if index.between?(0,18)
+
+      details_page(WhatsForDinner::Meals.all[index].link)
+#binding.pry
     else
       select_meal_input
     end
