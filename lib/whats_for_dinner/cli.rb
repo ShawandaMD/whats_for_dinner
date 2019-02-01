@@ -7,7 +7,7 @@ class WhatsForDinner::CLI
       input = gets.strip.downcase
       if input == "yes"
         puts "Here's a list"
-         meal_list
+         menu
       elsif input == "no" || input == "exit"
         puts "Thank you. Come again!"
       else
@@ -16,13 +16,26 @@ class WhatsForDinner::CLI
     end
   end
 
-  def meal_list
+  def menu
     puts ""
     puts ""
     puts ""
-    puts "~~~~~~~~~~~~~~~ The Menu ~~~~~~~~~~~~~~~"
+    puts "~~~~~~~~~~~~~~~~~~ The Menu ~~~~~~~~~~~~~~~~~~"
+    puts ""
 
-    
+    meal_list
+  end
+
+  def meal_list
+    meals_array = WhatsForDinner::Scraper.scrap_meals
+    WhatsForDinner::Meals.create_by_array(meals_array)
+
+    WhatsForDinner::Meals.all.each.with_index(1) do |meal, i|
+      puts "    #{i}.   #{meal.title}"
+    end
+    puts ""
+  end
+
 
     #list out all of the meals by index
   #  WhatsForDinner::Meals.all.each_with_index(1) do |meal, index|
@@ -30,7 +43,7 @@ class WhatsForDinner::CLI
 
   #  end
   #  select_meal_input
-  end
+
 
   def select_meal_input
     puts "What meal would you like to know more about?"
