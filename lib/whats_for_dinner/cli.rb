@@ -3,6 +3,10 @@ class WhatsForDinner::CLI
   def start
     puts "~~~~~~~~~~~~~~~~~~~ Welcome! ~~~~~~~~~~~~~~~~~~~~"
     puts " "
+    user
+  end
+
+  def user
     puts "Would you like to know whats for dinner this week?"
       input = gets.strip.downcase
       if input == "yes"
@@ -34,32 +38,51 @@ class WhatsForDinner::CLI
       puts "    #{i}.   #{meal.title}"
     end
     puts ""
-    #details_page
+  #  details_page
+    select_meal_input
   end
 
   def details_page
     WhatsForDinner::Meals.all.each do |meal|
       hash = WhatsForDinner::Scraper.scrap_meal_details(meal.link)
-       puts meal.add_meal_details(hash)
+        meal.add_meal_details(hash)
     end
   end
 
 
   def select_meal_input
     puts "What meal would you like to know more about?"
-    input = gets a number
+    puts ""
+    puts "Please input corresponding meal number."
+    input = gets.strip
+    index = input.to_i - 1
+      if index.between?(1,18)
+        binding.pry
+      WhatsForDinner::Meals.all[index]
+    else
+      select_meal_input
+    end
   end
 
-  def select_meal(input)
-
+  def print_meal(meal)
+    puts ""
+    puts ""
+    puts "#{meal.name}"
+    puts "#{meal.subtitle}"
+    puts ""
+    puts "Chef : #{meal.chef}"
+    puts ""
+    puts "Time : #{meal.time}"
+    puts ""
+    puts "Difficulty : #{meal.difficulty}"
+    puts ""
+    puts "Calories : #{meal.calorie}"
+    puts ""
+    puts "Spice: #{meal.spice}"
+    puts ""
+    puts "Description:"
+    puts "#{meal.description}"
+    puts ""
   end
-
-  #WHAT DO I WANT MY INTERFACE TO do
-
- #"Welcome!"
- # "Would you like to know whats for dinner?" get input of yes or no if no say "Thank you. Come again"
- # A list of meals numbered and and (v) by the vegetarian options
- # "which meal would you like to know more about" user chooses number and it goes into detail
-
 
 end
