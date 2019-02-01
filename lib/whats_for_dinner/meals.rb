@@ -4,15 +4,17 @@ class WhatsForDinner::Meals
 
    @@all = []
 
-   def initialize()
-
+   def initialize(hash)
+     @title = hash[:title]
+     @link = hash[:link]
      @@all << self
    end
 
-   def self.create_by_array(array_of_meals) #self because it's creating an instance
+   def self.create_by_array(array_of_meals)
      array_of_meals.each do |hash|
        WhatsForDinner::Meals.new(hash)
      end
+
    end
 
    def add_meal_details(hash)
