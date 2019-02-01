@@ -18,7 +18,10 @@ class WhatsForDinner::Meals
    end
 
    def add_meal_details(hash)
-
+     hash.each do |attr, value|
+       self.send("#{attr}=", value)
+     end
+     self
    end
 
    def self.all
