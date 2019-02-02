@@ -13,6 +13,7 @@ class WhatsForDinner::CLI
     puts "Enter yes or no"
       input = gets.strip.downcase
       if input == "yes"
+        puts ""
         puts "Here's a list"
         sleep 2
         puts " "
@@ -26,8 +27,6 @@ class WhatsForDinner::CLI
   end
 
   def menu
-    puts ""
-    puts ""
     puts ""
     puts "~~~~~~~~~~~~~~~~~~ The Menu ~~~~~~~~~~~~~~~~~~"
     puts ""
