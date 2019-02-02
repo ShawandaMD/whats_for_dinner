@@ -1,8 +1,10 @@
 class WhatsForDinner::CLI
 
   def start
+    puts " "
     puts "~~~~~~~~~~~~~~~~~~~ Welcome! ~~~~~~~~~~~~~~~~~~~~"
     puts " "
+    sleep 2
     user
   end
 
