@@ -39,8 +39,8 @@ class WhatsForDinner::CLI
     meals_array = WhatsForDinner::Scraper.scrap_meals
     WhatsForDinner::Meals.create_by_array(meals_array)
 
-    WhatsForDinner::Meals.all.each.with_index(1) do |meal, i|
-      puts "    #{i}.   #{meal.title}"
+     WhatsForDinner::Meals.all.each.with_index(1) do |meal, i|
+      puts "    #{i}.   #{meal.title}" if i < 14
     end
     puts ""
     select_meal_input
@@ -60,12 +60,14 @@ class WhatsForDinner::CLI
     index = input.to_i - 1
 
       if index.between?(0,18)
-#binding.pry
       x = details_page(WhatsForDinner::Meals.all[index])
       sleep 2
       print_meal(x)
-#binding.pry
-    else
+      back_to_menu
+      elsif
+        input == "exit"
+        puts "Thank you. Come again!"
+      else
       select_meal_input
     end
   end
@@ -89,6 +91,18 @@ class WhatsForDinner::CLI
     puts "Description:"
     puts "#{meal.description}"
     puts ""
+  end
+
+  def back_to_menu
+    sleep 2
+    puts ""
+    puts "Back to menu?"
+    input = gets.strip
+    if input == "yes"
+      meal_list
+    else
+    puts "Thank you. Come again!"
+    end
   end
 
 end
