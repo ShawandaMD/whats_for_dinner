@@ -42,11 +42,9 @@ class WhatsForDinner::CLI
     select_meal_input
   end
 
-  def details_page(link)
-      hash = WhatsForDinner::Scraper.scrap_meal_details(link)
+  def details_page(meal)
+      hash = WhatsForDinner::Scraper.scrap_meal_details(meal.link)
       meal.add_meal_details(hash)
-      #binding.pry
-    #binding.pry WhatsForDinner::Meals.all <<
   end
 
 
@@ -56,10 +54,10 @@ class WhatsForDinner::CLI
     puts "Please input corresponding meal number."
     input = gets.strip
     index = input.to_i - 1
-binding.pry
+#binding.pry
       if index.between?(0,18)
-
-      details_page(WhatsForDinner::Meals.all[index].link)
+binding.pry
+      details_page(WhatsForDinner::Meals.all[index])
 #binding.pry
     else
       select_meal_input
