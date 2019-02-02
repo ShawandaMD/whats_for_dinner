@@ -40,7 +40,7 @@ class WhatsForDinner::CLI
     WhatsForDinner::Meals.create_by_array(meals_array)
 
      WhatsForDinner::Meals.all.each.with_index(1) do |meal, i|
-      puts "    #{i}.   #{meal.title}" if i < 14
+      puts "    #{i}.   #{meal.title}" if i < 14 #back_to_menu
     end
     puts ""
     select_meal_input
@@ -80,15 +80,15 @@ class WhatsForDinner::CLI
     puts ""
     puts "Chef : #{meal.chef}"
     puts ""
-    puts "Time : #{meal.time}"
+    puts "Prepare Time : #{meal.time}"
     puts ""
     puts "Difficulty : #{meal.difficulty}"
     puts ""
     puts "Calories : #{meal.calories}"
     puts ""
-    puts "Spice: #{meal.spice}"
+    puts "Spice : #{meal.spice}"
     puts ""
-    puts "Description:"
+    puts "Description :"
     puts "#{meal.description}"
     puts ""
   end
