@@ -14,6 +14,8 @@ class WhatsForDinner::CLI
       input = gets.strip.downcase
       if input == "yes"
         puts "Here's a list"
+        sleep 2
+        puts " "
          menu
       elsif input == "no" || input == "exit"
         puts "Thank you. Come again!"
@@ -29,7 +31,7 @@ class WhatsForDinner::CLI
     puts ""
     puts "~~~~~~~~~~~~~~~~~~ The Menu ~~~~~~~~~~~~~~~~~~"
     puts ""
-
+    sleep 1
     meal_list
   end
 
@@ -60,6 +62,7 @@ class WhatsForDinner::CLI
       if index.between?(0,18)
 #binding.pry
       x = details_page(WhatsForDinner::Meals.all[index])
+      sleep 2
       print_meal(x)
 #binding.pry
     else
