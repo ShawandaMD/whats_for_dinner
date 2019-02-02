@@ -1,6 +1,6 @@
 class WhatsForDinner::Scraper
 
-  def self.scrap_meals #make this an argument for url for doc
+  def self.scrap_meals #potentially make this an argument?
     doc = Nokogiri::HTML(open("https://www.homechef.com/our-menus/25-feb-2019/standard"))
     meals = []
 
@@ -10,10 +10,11 @@ class WhatsForDinner::Scraper
       meals << {title: title, link: link }
     end
     meals
+
   end
 
   def self.scrap_meal_details(url)
-    details = Nokogiri::HTML(open(url)) #"https://www.homechef.com/meals/roasted-red-pepper-chicken"
+    details = Nokogiri::HTML(open(url))
 
     meal = {}
       meal[:subtitle] = details.css("header.meal__header.order--1.group span h2").text
@@ -25,5 +26,5 @@ class WhatsForDinner::Scraper
       meal[:description] = details.css("div.flexGrid__item.padding--6left--bpUp3.margin--3top--bpDown2.size--xs--bpDown2 p").text
     meal
   end
-  #Fruit Basket is going to give me nil!!!
+
 end
