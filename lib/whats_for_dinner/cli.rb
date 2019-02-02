@@ -54,10 +54,11 @@ class WhatsForDinner::CLI
     puts "Please input corresponding meal number."
     input = gets.strip
     index = input.to_i - 1
-#binding.pry
+
       if index.between?(0,18)
-binding.pry
-      details_page(WhatsForDinner::Meals.all[index])
+#binding.pry
+      x = details_page(WhatsForDinner::Meals.all[index])
+      print_meal(x)
 #binding.pry
     else
       select_meal_input
@@ -67,7 +68,7 @@ binding.pry
   def print_meal(meal)
     puts ""
     puts ""
-    puts "#{meal.name}"
+    puts "#{meal.title}"
     puts "#{meal.subtitle}"
     puts ""
     puts "Chef : #{meal.chef}"
@@ -76,7 +77,7 @@ binding.pry
     puts ""
     puts "Difficulty : #{meal.difficulty}"
     puts ""
-    puts "Calories : #{meal.calorie}"
+    puts "Calories : #{meal.calories}"
     puts ""
     puts "Spice: #{meal.spice}"
     puts ""
