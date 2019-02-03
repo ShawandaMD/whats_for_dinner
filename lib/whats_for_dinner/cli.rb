@@ -58,7 +58,7 @@ class WhatsForDinner::CLI
     input = gets.strip
     index = input.to_i - 1
 
-      if index.between?(0,18)
+      if index.between?(0,13) 
       x = details_page(WhatsForDinner::Meals.all[index])
       sleep 2
       print_meal(x)
