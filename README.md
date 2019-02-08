@@ -4,7 +4,11 @@ Welcome to WhatsForDinner! This application will give users a look at the menu o
 
 ## Installation
 
-To install manually type this line into terminal
+To require gem type this into terminal
+
+    $ git clone git@github.com:ShawandaMD/whats_for_dinner.git
+
+To install type this line into terminal
 
     $ gem install whats_for_dinner
 
