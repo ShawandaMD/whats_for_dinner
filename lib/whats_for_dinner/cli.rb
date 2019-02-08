@@ -97,11 +97,15 @@ class WhatsForDinner::CLI
     sleep 2
     puts ""
     puts "Back to menu?"
+    puts "Enter yes or no"
     input = gets.strip
     if input == "yes"
       meal_list
+    elsif input == "no" || input == "exit"
+      puts "Thank you. Come again!"
     else
-    puts "Thank you. Come again!"
+      puts "Invalid input"
+      back_to_menu
     end
   end
 
