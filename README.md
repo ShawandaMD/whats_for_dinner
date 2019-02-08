@@ -4,13 +4,15 @@ Welcome to WhatsForDinner! This application will give users a look at the menu o
 
 ## Installation
 
+To install manually type this line into terminal
+
     $ gem install whats_for_dinner
 
 ## Usage
 
 Type the below and follow the on screen prompts.
 
-    $ whats_for_dinner
+    $ bin/whats_for_dinner
 
 ## Development
 
