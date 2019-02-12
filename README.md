@@ -8,9 +8,13 @@ To require gem type this into terminal
 
     $ git clone git@github.com:ShawandaMD/whats_for_dinner.git
 
-To install type this line into terminal
+Make sure to change directories
 
-    $ gem install whats_for_dinner
+    $ cd  whats_for_dinner
+
+Next, run bundle to install necessary gems
+
+    $ bundle install
 
 ## Usage
 
